@@ -1909,7 +1909,7 @@ bool gravitylite_apply_in_session(GravityLiteConfig config)
         return false;
     }
     int iosMajor = gl_remote_ios_major();
-    bool useLiveIconPath = true;
+    bool useLiveIconPath = false;
     printf("[GRAVITY] Using iOS %d %s path.\n",
            iosMajor > 0 ? iosMajor : 0,
            useLiveIconPath
