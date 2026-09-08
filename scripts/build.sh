@@ -47,7 +47,7 @@ IPA_LATEST="$PWD/build/${IPA_PREFIX}.ipa"
 XCODEBUILD_EXTRA=()
 
 if [ "$SDK" = "iphonesimulator" ]; then
-    XCODEBUILD_EXTRA+=(ARCHS=arm64 ONLY_ACTIVE_ARCH=YES)
+    XCODEBUILD_EXTRA=(ARCHS=arm64 ONLY_ACTIVE_ARCH=YES)
 fi
 
 mkdir -p build
@@ -60,10 +60,6 @@ xcodebuild \
     -configuration "$CONFIG" \
     -derivedDataPath "$DERIVED" \
     CODE_SIGNING_ALLOWED=NO \
-    OTHER_LDFLAGS="-framework IOSurface" \
-    OTHER_LDFLAGS="$OTHER_LDFLAGS -F$(SDKROOT)/System/Library/PrivateFrameworks" \
-    OTHER_CFLAGS="-I$(SDKROOT)/System/Library/Frameworks/IOSurface.framework/Headers" \
-    OTHER_CFLAGS="$OTHER_CFLAGS -I$(SDKROOT)/System/Library/PrivateFrameworks/IOSurface.framework/Headers" \
     ${XCODEBUILD_EXTRA[@]+"${XCODEBUILD_EXTRA[@]}"} \
     build \
     | xcbeautify --quiet 2>/dev/null \
@@ -74,10 +70,6 @@ xcodebuild \
          -configuration "$CONFIG" \
          -derivedDataPath "$DERIVED" \
          CODE_SIGNING_ALLOWED=NO \
-    OTHER_LDFLAGS="-framework IOSurface" \
-    OTHER_LDFLAGS="$OTHER_LDFLAGS -F$(SDKROOT)/System/Library/PrivateFrameworks" \
-    OTHER_CFLAGS="-I$(SDKROOT)/System/Library/Frameworks/IOSurface.framework/Headers" \
-    OTHER_CFLAGS="$OTHER_CFLAGS -I$(SDKROOT)/System/Library/PrivateFrameworks/IOSurface.framework/Headers" \
          ${XCODEBUILD_EXTRA[@]+"${XCODEBUILD_EXTRA[@]}"} \
          build
 
