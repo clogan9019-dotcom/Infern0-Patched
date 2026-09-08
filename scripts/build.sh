@@ -61,7 +61,9 @@ xcodebuild \
     -derivedDataPath "$DERIVED" \
     CODE_SIGNING_ALLOWED=NO \
     OTHER_LDFLAGS="-framework IOSurface" \
+    OTHER_LDFLAGS="$OTHER_LDFLAGS -F$(SDKROOT)/System/Library/PrivateFrameworks" \
     OTHER_CFLAGS="-I$(SDKROOT)/System/Library/Frameworks/IOSurface.framework/Headers" \
+    OTHER_CFLAGS="$OTHER_CFLAGS -I$(SDKROOT)/System/Library/PrivateFrameworks/IOSurface.framework/Headers" \
     ${XCODEBUILD_EXTRA[@]+"${XCODEBUILD_EXTRA[@]}"} \
     build \
     | xcbeautify --quiet 2>/dev/null \
@@ -73,7 +75,9 @@ xcodebuild \
          -derivedDataPath "$DERIVED" \
          CODE_SIGNING_ALLOWED=NO \
     OTHER_LDFLAGS="-framework IOSurface" \
+    OTHER_LDFLAGS="$OTHER_LDFLAGS -F$(SDKROOT)/System/Library/PrivateFrameworks" \
     OTHER_CFLAGS="-I$(SDKROOT)/System/Library/Frameworks/IOSurface.framework/Headers" \
+    OTHER_CFLAGS="$OTHER_CFLAGS -I$(SDKROOT)/System/Library/PrivateFrameworks/IOSurface.framework/Headers" \
          ${XCODEBUILD_EXTRA[@]+"${XCODEBUILD_EXTRA[@]}"} \
          build
 
