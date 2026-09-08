@@ -44,10 +44,10 @@ else
     IPA_PREFIX="Infern0"
 fi
 IPA_LATEST="$PWD/build/${IPA_PREFIX}.ipa"
-XCODEBUILD_EXTRA=()
+XCODEBUILD_EXTRA=(-framework IOSurface)
 
 if [ "$SDK" = "iphonesimulator" ]; then
-    XCODEBUILD_EXTRA=(ARCHS=arm64 ONLY_ACTIVE_ARCH=YES)
+    XCODEBUILD_EXTRA+=(ARCHS=arm64 ONLY_ACTIVE_ARCH=YES)
 fi
 
 mkdir -p build
