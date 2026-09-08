@@ -51,6 +51,7 @@
 		FBEF03482FAC52D5005E14B9 /* ChOma.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ChOma.xcodeproj; sourceTree = "<group>"; };
 		FBFA38382FB68E0600B9F081 /* ChOma.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ChOma.xcodeproj; sourceTree = "<group>"; };
 		FBFECAA52FCF1D67006A02BE /* ChOma.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ChOma.xcodeproj; sourceTree = "<group>"; };
+		12345678901234567890123456789012 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -140,6 +141,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		12345678901234567890123456789013 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12345678901234567890123456789012 /* IOSurface.framework */; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -390,13 +392,13 @@
 		AAA297762F72D439000B5902 /* Cyanide */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAA2978F2F72D43A000B5902 /* Build configuration list for PBXNativeTarget "Cyanide" */;
-			buildPhases = (
-				AAA2986F2F741423000B5902 /* ShellScript */,
+			buildPhases = (AAA2986F2F741423000B5902 /* ShellScript */,
 				AAA297732F72D439000B5902 /* Sources */,
 				AAA297742F72D439000B5902 /* Frameworks */,
 				AAA297752F72D439000B5902 /* Resources */,
 				AAA2989D2F7418CC000B5902 /* CopyFiles */,
 				FBC0A0012FD6000000C0A001 /* Copy Simulator XPF */,
+				12345678901234567890123456789013 /* IOSurface.framework in Frameworks */,
 			);
 			buildRules = (
 			);
