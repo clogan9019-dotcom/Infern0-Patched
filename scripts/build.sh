@@ -44,7 +44,7 @@ else
     IPA_PREFIX="Infern0"
 fi
 IPA_LATEST="$PWD/build/${IPA_PREFIX}.ipa"
-XCODEBUILD_EXTRA=(-framework IOSurface)
+XCODEBUILD_EXTRA=()
 
 if [ "$SDK" = "iphonesimulator" ]; then
     XCODEBUILD_EXTRA+=(ARCHS=arm64 ONLY_ACTIVE_ARCH=YES)
@@ -60,6 +60,7 @@ xcodebuild \
     -configuration "$CONFIG" \
     -derivedDataPath "$DERIVED" \
     CODE_SIGNING_ALLOWED=NO \
+    OTHER_LDFLAGS="-framework IOSurface" \
     ${XCODEBUILD_EXTRA[@]+"${XCODEBUILD_EXTRA[@]}"} \
     build \
     | xcbeautify --quiet 2>/dev/null \
@@ -70,6 +71,7 @@ xcodebuild \
          -configuration "$CONFIG" \
          -derivedDataPath "$DERIVED" \
          CODE_SIGNING_ALLOWED=NO \
+    OTHER_LDFLAGS="-framework IOSurface" \
          ${XCODEBUILD_EXTRA[@]+"${XCODEBUILD_EXTRA[@]}"} \
          build
 
